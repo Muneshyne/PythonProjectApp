@@ -10,7 +10,9 @@
  ## CRUD
  ### Create
  The first thing I had to do was create models for my app. To do this, I used Django's Model class and defined my models' attributes in the models.py file of the app:
- '''
+ 
+ ```
+ 
 WHICH_AFFILIATION = (
     ('light', 'light'),
     ('dark', 'dark'),
@@ -29,11 +31,12 @@ class Character(models.Model):
 
     def __str__(self):
         return self.Name_of_Character
- '''
+        
+ ```
  
  I had this all linked to several html pages like this one:
  
- '''
+ ```
  {% extends "swu_base.html" %}
 {% load static %}
 
@@ -59,10 +62,10 @@ class Character(models.Model):
 <br>
 </h3>
 {% endblock %}
-'''
+```
 And this page to show the full list of characters added to the SQLite database
 
-'''
+```
 {% extends "swu_base.html" %}
 {% load static %}
 
@@ -88,10 +91,10 @@ And this page to show the full list of characters added to the SQLite database
 <br>
 </h3>
 {% endblock %}
-'''
+```
 I was also tasked with creating a Details page as the character list just showed a few attributes. This woudld allow for someone to click on a name and see further details on a seperate page with edit and delete buttons.
 
-'''
+```
 {% extends "swu_base.html" %}
 {% load static %}
 {% block title %} {{ Name_of_Character }} {% endblock %}
@@ -104,12 +107,12 @@ I was also tasked with creating a Details page as the character list just showed
 
 
 {% endblock %}
-'''
+```
 
 ## View
 To have all the information show on any page from the database. I had to create a views page in views.py 
 
-'''
+```
 class CharacterViewSet(viewsets.ModelViewSet):
     queryset = Character.objects.all()
     serializer_class = [permissions.IsAuthenticated]
@@ -162,12 +165,12 @@ def delete_character(request, id):
         char_list.delete()
         return HttpResponseRedirect('/StarWarsUniverse/characters_list')
     return render(request, "swu_delete.html", {"form": form})
-'''
+```
 This shows all the information where it is linked.
 
 ## API
 This was the SWAPI API function from my views.py
-'''
+```
 
 def sources(request):
     if request.method == 'POST':
@@ -185,7 +188,7 @@ def sources(request):
                   {'form': form['results'][0]['name']}
                   )
                   
-'''
+```
 
 ## Used in App
 The app is created in the Django Framework version 2.2 and was written with Python, HTML, CSS, & DTL (Django-Template Language). Using Azure for Version Control.
