@@ -1,0 +1,12 @@
+{% extends "swu_base.html" %}
+{% load static %}
+{% block title %} {{ Name_of_Character }} {% endblock %}
+{% block content %}
+
+<h2>{{Name}}({{Race}})</h2>
+<h2>First Appearance: {{First_Appearance}}</h2>
+<h2>Affiliation: {{Affiliation}}</h2>
+<h2>Details: {{Details}}</h2>
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "swu_base.html" %}
+{% load static %}
+
+{% block title %}Add a Character! {% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+<h1>Add a Character to the data bank!</h1>
+<br><br>
+<h3>
+
+    <!-- List of characters need to learn how to add pictures -->
+
+      <h1>Enter Character</h1>
+    <div class="form-wrap">
+        <form method="POST" id="character-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button id="add-button" type= "submit" name="add-char">ADD CHARACTER!</button>
+        </form>
+        <!--IN FORMS.PY RETURNS INFO FROM MODELS-->
+        <br>
+    </div>
+
+
+<br>
+</h3>
+{% endblock %}

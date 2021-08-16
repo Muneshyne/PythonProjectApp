@@ -1,0 +1,25 @@
+{% extends "swu_base.html" %}
+{% load static %}
+
+{% block title %} Characters {% endblock %}
+
+{% block header %} {% endblock %}
+
+{% block content %}
+<h1>Characters</h1>
+<br><br>
+<h3>
+
+    <!-- List of characters need to learn how to add pictures -->
+{% for Character in char_list %}
+        <ul class="listed">
+            <li><a href="{% url 'character_details' Character.id %}">{{ Character.Name_of_Character}} ({{Character.Race_Type}}) ({{Character.Affiliation }})</a></li>
+            <a class="function-button" href="{% url 'edit_char_list' Character.id %}">Edit</a> <a  class="function-button" href="{% url 'delete_character' Character.id %}">Delete</a>
+        </ul>
+{% endfor %}
+
+
+
+<br>
+</h3>
+{% endblock %}
